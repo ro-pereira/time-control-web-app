@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { ITimer } from "../interface";
 import TimerCard from "../components/TimerCard/TimerCard";
 import { px2vw } from "../globalStyle";
+import { ITimer } from "../interface";
 
 const HomePage = styled.main`
   max-width: 100vw;
@@ -38,11 +38,21 @@ const Home = () => {
   ]);
 
   return (
-    <HomePage className="d-flex flex-column align-items-center">
-      <Container className="d-flex flex-wrap gap-5">
+    <HomePage className="d-flex flex-column align-items-center ">
+      <Container className="d-flex flex-wrap justify-content-center  gap-5">
         {timers.map((timer) => {
-          return <TimerCard key={timer.id} timer={timer}></TimerCard>;
+          return (
+            <TimerCard
+              key={timer.id}
+              timer={timer}
+              timers={timers}
+              setTimers={setTimers}
+            />
+          );
         })}
+        {timers.length === 0 && (
+          <div style={{ color: "#fff" }}>add new timer</div>
+        )}
       </Container>
     </HomePage>
   );

@@ -6,9 +6,17 @@ export interface ITimer {
 
 export interface ITimerCardProps {
   timer: ITimer;
+  timers: ITimer[];
+  setTimers: React.Dispatch<React.SetStateAction<ITimer[]>>;
 }
 
 export interface IShowTimeProps {
   timer: ITimer;
   countSelected: boolean;
+}
+
+export interface IButtonProps {
+  countSelected?: boolean;
+  handleAction: () => void;
+  buttonTitle: string;
 }

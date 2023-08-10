@@ -10,13 +10,16 @@ const ShowTime = ({ timer, countSelected }: IShowTimeProps) => {
   };
 
   return (
-    <span
-      style={{
-        color: countSelected ? "rgb(48, 210, 242)" : "rgb(255, 255, 255)",
-      }}
-    >
-      {addZeroLessThanNine(hour)} : {addZeroLessThanNine(minute)} : {addZeroLessThanNine(second)}
-    </span>
+    <div className="d-flex justify-content-center">
+      <span
+        style={{
+          color: countSelected ? "rgb(48, 210, 242)" : "rgb(255, 255, 255)",
+        }}
+      >
+        {addZeroLessThanNine(hour)} : {addZeroLessThanNine(minute)} :{" "}
+        {addZeroLessThanNine(second)}
+      </span>
+    </div>
   );
 };
 
