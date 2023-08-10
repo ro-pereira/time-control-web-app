@@ -3,6 +3,7 @@ import styled from "styled-components";
 import TimerCard from "../components/TimerCard/TimerCard";
 import { px2vw } from "../globalStyle";
 import { ITimer } from "../interface";
+import Button from "../components/Button/Button";
 
 const HomePage = styled.main`
   max-width: 100vw;
@@ -32,10 +33,15 @@ const Container = styled.div`
   }
 `;
 
+let newId = 0;
 const Home = () => {
-  const [timers, setTimers] = useState<ITimer[]>([
-    { id: 0, name: "new count", seconds: 0 },
-  ]);
+  const [timers, setTimers] = useState<ITimer[]>([]);
+
+  const handleAddNewTimer = () => {
+    const newTimer = { id: newId, name: "new timer", seconds: 0 };
+    setTimers([...timers, newTimer]);
+    newId += 1;
+  };
 
   return (
     <HomePage className="d-flex flex-column align-items-center ">
@@ -54,6 +60,7 @@ const Home = () => {
           <div style={{ color: "#fff" }}>add new timer</div>
         )}
       </Container>
+      <Button handleAction={handleAddNewTimer} buttonTitle={"New timer"} />
     </HomePage>
   );
 };

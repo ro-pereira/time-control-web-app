@@ -98,7 +98,7 @@ const TimerCard = ({ timer, timers, setTimers }: ITimerCardProps) => {
             onChange={(evt) => handleChangeTitle(evt)}
           />
         </div>
-          <ShowTimer timer={timer} countSelected={countSelected} />
+        <ShowTimer timer={timer} countSelected={countSelected} />
         {/* </div> */}
       </div>
 

@@ -4,7 +4,7 @@ export const handleTimerCount = (timers: ITimer[], id: number) => {
   const allTimers = [...timers];
   const timerFound = allTimers.find((e) => e.id === id);
   if (!timerFound) {
-    throw new Error("timer not found");
+    throw new Error("not found");
   }
 
   const handleStartCounting = () => {
@@ -25,7 +25,6 @@ export const handleTimerCount = (timers: ITimer[], id: number) => {
 
   const changeTitle = (title: string) => {
     timerFound.name = title;
-
     return allTimers;
   };
 
